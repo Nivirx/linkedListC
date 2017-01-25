@@ -128,10 +128,8 @@ node* get_by_index(list* l, uint index) {
 }
 
 void free_list(list* l) {
-  if(l != NULL) {
-    for(int i = l->count; i > 0;i--){
-      remove_node(l,i);
+    for(int i = l->count; i > 0;i--) {
+        remove_node(l,i);
     }
     free(l);
-  }
 }

@@ -30,7 +30,7 @@ int main (void)
   printf("list node count: %d\n", l->count);
 
 
-  printf("memory used: %s bytes\n", get_bytes_f(l->size_b, str));
+  printf("memory used: %s\n", get_bytes_f(l->size_b, str));
 
   free(str);
   free_list(l);

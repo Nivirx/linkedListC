@@ -1,8 +1,3 @@
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <stdio.h>
-
 #include "linkedList.h"
 
 // helper function to format bytes out.

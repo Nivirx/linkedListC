@@ -12,6 +12,8 @@ stable:clean
 	$(CC) $(CFLAGS) -O2 -o linkedList linkedList.c main.c
 library:clean
 	$(CC) $(CFLAGS) -fPIC -c linkedList.c
-	$(CC) -shared -Wl,-soname,liblinkedList.so.1 -o liblinkedList.so.1.0
+	$(CC) -shared -Wl,-soname,liblinkedList.so.1 -o liblinkedList.so.1.0 linkedList.o
 clean:
 	rm -vfr *~ linkedList
+	rm -vfr *.o
+	rm -vfr liblinkedList.so*

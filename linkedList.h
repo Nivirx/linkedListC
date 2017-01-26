@@ -1,29 +1,43 @@
-#ifndef __STRUCT_H_
-#define __STRUCT_H_
+#ifndef __LINKEDLIST_H_
+#define __LINKEDLIST_H_
 
-typedef struct node {
-  struct node* next;
-  struct node* prev;
+#include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+typedef struct node_s {
+  struct node_s* next;
+  struct node_s* prev;
   int data;
-} node;
+}node;
 
-typedef struct {
-  node* root;
-  node* last;
+typedef struct list_s {
+  struct node_s* root;
+  struct node_s* last;
   uint count;
   uint size_b;
-} list;
+}list;
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 // Helpers
-char* get_bytes_f(long bytes, char* str);
+extern char* get_bytes_f(long bytes, char* str);
 
 // List functions
-void init_list();
-bool remove_node(list* l, uint index) __attribute__((nonnull));
-bool insert_after(list* l, node* n, uint index) __attribute__((nonnull));
-node* add_node(list* l) __attribute__((nonnull));
-void add_root_node(list* l) __attribute__((nonnull));
-node* get_by_index(list* l, uint index) __attribute__((nonnull));
-void free_list(list* l)__attribute__((nonnull));
+extern void init_list();
+extern bool remove_node(list* l, uint index) __attribute__((nonnull));
+extern bool insert_after(list* l, node* n, uint index) __attribute__((nonnull));
+extern node* add_node(list* l) __attribute__((nonnull));
+extern void add_root_node(list* l) __attribute__((nonnull));
+extern node* get_by_index(list* l, uint index) __attribute__((nonnull));
+extern void free_list(list* l)__attribute__((nonnull));
 
-#endif	/* __STRUCT_H_ */
+#ifdef __cplusplus
+}
+#endif
+
+#endif	/* __LINKEDLIST_H_ */

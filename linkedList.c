@@ -6,8 +6,8 @@
 #include "linkedList.h"
 
 // helper function to format bytes out.
-char* get_bytes_f(long bytes, char* str) 
-{
+char* 
+get_bytes_f(long bytes, char* str) {
   if(str != NULL) {
     if (bytes > 0)
       {
@@ -28,7 +28,8 @@ char* get_bytes_f(long bytes, char* str)
   return str;
 }
 
-void init_list(list* l) {
+void 
+init_list(list* l) {
   if(l != NULL) {
     l->root = NULL;
     l->last = NULL;
@@ -40,7 +41,8 @@ void init_list(list* l) {
 }
 
 //Returns false if removing a node fails
-bool remove_node(list* l, uint index) {
+bool 
+remove_node(list* l, uint index) {
   node* n = NULL;
   if(index == l->count) {
     n = l->last;
@@ -70,7 +72,8 @@ bool remove_node(list* l, uint index) {
   }
 }
 
-bool insert_after(list* l, node* n, uint index) {
+bool 
+insert_after(list* l, node* n, uint index) {
 
   node* tempPrev = NULL;
   node* tempNext = NULL;
@@ -90,7 +93,8 @@ bool insert_after(list* l, node* n, uint index) {
   return true;
 }
 
-void add_root_node(list* l) {
+void 
+add_root_node(list* l) {
     
     l->root = malloc(sizeof(node));
     l->root->next = NULL;
@@ -102,7 +106,8 @@ void add_root_node(list* l) {
     l->size_b += sizeof(node);
 }
 
-node* add_node(list* l) {
+node* 
+add_node(list* l) {
     l->last->next = malloc(sizeof(node));
     l->last->next->prev = l->last;
 
@@ -116,7 +121,8 @@ node* add_node(list* l) {
     return l->last;
   }
 
-node* get_by_index(list* l, uint index) {
+node* 
+get_by_index(list* l, uint index) {
   node* target = NULL;
   target = l->root;
 
@@ -127,7 +133,8 @@ node* get_by_index(list* l, uint index) {
   return target;
 }
 
-void free_list(list* l) {
+void 
+free_list(list* l) {
     for(int i = l->count; i > 0;i--) {
         remove_node(l,i);
     }
